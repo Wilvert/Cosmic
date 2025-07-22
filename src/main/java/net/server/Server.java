@@ -57,6 +57,7 @@ import database.maker.MakerInfoProvider;
 import database.maker.MakerRepository;
 import database.migration.FlywayRunner;
 import database.monsterbook.MonsterCardRepository;
+import database.DatabaseMigrations;
 import database.note.NoteDao;
 import database.shop.ShopDao;
 import net.ChannelDependencies;
@@ -712,6 +713,8 @@ public class Server {
         if (!DatabaseConnection.initializeConnectionPool()) {
             throw new IllegalStateException("Failed to initiate a connection to the database");
         }
+
+        DatabaseMigrations.runDatabaseMigrations();
 
         channelDependencies = registerChannelDependencies(pgDbConnection);
 
