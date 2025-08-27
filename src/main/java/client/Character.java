@@ -8294,7 +8294,7 @@ public class Character extends AbstractCharacterObject {
                         effLock.unlock();
                     }
 
-                    ps.setInt(15, gmLevel);
+                    ps.setInt(15, 1);
                     ps.setInt(16, skinColor.getId());
                     ps.setInt(17, gender);
                     ps.setInt(18, job.getId());
