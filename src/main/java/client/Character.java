@@ -8120,12 +8120,6 @@ public class Character extends AbstractCharacterObject {
                     ps.setInt(21, level);
                     ps.setInt(22, remainingAp);
 
-                    // These are the new lines with the correct column names
-                    //ps.setInt(23, 96); //Set equipslots to 96
-                    //ps.setInt(24, 96); //Set useslots to 96
-                    //ps.setInt(25, 96); //Set setupslots to 96
-                    //ps.setInt(26, 96); //Set etcslots to 96
-
                     StringBuilder sps = new StringBuilder();
                     for (int j : remainingSp) {
                         sps.append(j);
@@ -8149,7 +8143,6 @@ public class Character extends AbstractCharacterObject {
                         }
                     }
                 }
-
                 // Select a keybinding method
                 int[] selectedKey;
                 int[] selectedType;
