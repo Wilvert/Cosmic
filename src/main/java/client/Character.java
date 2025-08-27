@@ -8101,7 +8101,7 @@ public class Character extends AbstractCharacterObject {
                     ps.setInt(2, dex);
                     ps.setInt(3, luk);
                     ps.setInt(4, int_);
-                    ps.setInt(5, 1); //Set gmlevel to 1 (Donator)
+                    ps.setInt(5, gmLevel);
                     ps.setInt(6, skinColor.getId());
                     ps.setInt(7, gender);
                     ps.setInt(8, getJob().getId());
@@ -8294,7 +8294,7 @@ public class Character extends AbstractCharacterObject {
                         effLock.unlock();
                     }
 
-                    ps.setInt(15, 1);
+                    ps.setInt(15, gmLevel);
                     ps.setInt(16, skinColor.getId());
                     ps.setInt(17, gender);
                     ps.setInt(18, job.getId());
