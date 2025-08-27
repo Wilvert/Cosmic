@@ -4,8 +4,8 @@
 worlds:
     #Properties for Scania 0
   - flag: 3
-    server_message: SjanderStory, speciaal voor sukkelnerds.
-    event_message: SjanderStory, speciaal voor sukkelnerds.
+    server_message: SjanderStory, speciaal voor sukkelnerdjes.
+    event_message: SjanderStory, speciaal voor sukkelnerdjes.
     why_am_i_recommended: SjanderStory, om Sjander zn jaarlijkse MapleStory itch te temmen. Oja, en voor NX moet je gewoon doneren.
     channels: 3
     exp_rate: 10

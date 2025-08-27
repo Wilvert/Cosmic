@@ -8101,7 +8101,7 @@ public class Character extends AbstractCharacterObject {
                     ps.setInt(2, dex);
                     ps.setInt(3, luk);
                     ps.setInt(4, int_);
-                    ps.setInt(5, 1);
+                    ps.setInt(5, 1); //Set gmlevel to 1 (Donator)
                     ps.setInt(6, skinColor.getId());
                     ps.setInt(7, gender);
                     ps.setInt(8, getJob().getId());
