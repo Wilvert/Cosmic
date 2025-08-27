@@ -21,6 +21,22 @@
  */
 package net.server.channel.handlers;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import client.BuddyList;
 import client.BuddylistEntry;
 import client.Character;
@@ -54,8 +70,6 @@ import net.server.guild.GuildPackets;
 import net.server.world.PartyCharacter;
 import net.server.world.PartyOperation;
 import net.server.world.World;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import scripting.event.EventInstanceManager;
 import server.life.MobSkill;
 import service.NoteService;
@@ -63,19 +77,6 @@ import tools.DatabaseConnection;
 import tools.PacketCreator;
 import tools.Pair;
 import tools.packets.WeddingPackets;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public final class PlayerLoggedinHandler extends AbstractPacketHandler {
     private static final Logger log = LoggerFactory.getLogger(PlayerLoggedinHandler.class);
@@ -454,6 +455,19 @@ public final class PlayerLoggedinHandler extends AbstractPacketHandler {
             if (newcomer) {
                 player.setLoginTime(System.currentTimeMillis());
             }
+            // Quest ring
+            int QuestItem = 1112103;
+Inventory equippedQuestRing = c.getPlayer().getInventory(InventoryType.EQUIPPED);
+Equip eqQr = (Equip) equippedQuestRing.findById(QuestItem);
+
+if (eqQr == null) {
+    // If not found in EQUIPPED, search in EQUIP inventory
+    Inventory equipInventory = c.getPlayer().getInventory(InventoryType.EQUIP);
+    eqQr = (Equip) equipInventory.findById(QuestItem);
+}
+
+c.getPlayer().forceUpdateItem(eqQr);
+c.getPlayer().applyQuestRingBoost();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

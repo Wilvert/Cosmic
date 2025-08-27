@@ -9531,6 +9531,21 @@ public class Character extends AbstractCharacterObject {
         } else if (qs.getStatus().equals(QuestStatus.Status.COMPLETED)) {
             Quest mquest = qs.getQuest();
             short questid = mquest.getId();
+            // Quest ring
+             int questRingId = 1112103; // example item ID of the quest ring
+Inventory equipped = client.getPlayer().getInventory(InventoryType.EQUIPPED);
+Equip eqQr = (Equip) equipped.findById(questRingId);
+
+if (eqQr == null) {
+    // If not equipped, search in EQUIP inventory
+    Inventory equipInventory = client.getPlayer().getInventory(InventoryType.EQUIP);
+    eqQr = (Equip) equipInventory.findById(questRingId);
+}
+
+if (eqQr != null) {
+    client.getPlayer().forceUpdateItem(eqQr);
+    client.getPlayer().applyQuestRingBoost();
+}
             if (!mquest.isSameDayRepeatable() && !Quest.isExploitableQuest(questid)) {
                 awardQuestPoint(YamlConfig.config.server.QUEST_POINT_PER_QUEST_COMPLETE);
             }
@@ -10905,4 +10920,54 @@ public class Character extends AbstractCharacterObject {
     public void setChasing(boolean chasing) {
         this.chasing = chasing;
     }
+
+//Quest ring:
+
+public void applyQuestRingBoost() {
+    equipchanged = true;
+
+    Inventory equip = this.getInventory(InventoryType.EQUIP);
+    Inventory equipped = this.getInventory(InventoryType.EQUIPPED);
+    Equip questRing = (Equip) equip.findById(1112103);
+    if (questRing == null)
+        questRing = (Equip) equipped.findById(1112103);
+    if (questRing == null) {
+        System.out.println("Error: Unable to find quest ring.");
+        return;
+    }
+
+    // Count how many quests are completed
+    int completedQuests = this.getCompletedQuests().size() / 10;
+
+    // Each completed quest = +1 all stats
+    short ringHP = (short) completedQuests;
+    short ringMP = (short) completedQuests;
+    short ringSTR = (short) completedQuests;
+    short ringDEX = (short) completedQuests;
+    short ringINT = (short) completedQuests;
+    short ringLUK = (short) completedQuests;
+    short ringWatk = (short) completedQuests;
+    short ringMatk = (short) completedQuests;
+
+    try {
+        questRing.setHp(ringHP);
+        questRing.setMp(ringMP);
+        questRing.setStr(ringSTR);
+        questRing.setDex(ringDEX);
+        questRing.setInt(ringINT);
+        questRing.setLuk(ringLUK);
+        questRing.setWatk(ringWatk);
+        questRing.setMatk(ringMatk);
+
+        byte flag = (byte) questRing.getFlag();
+        flag |= ItemConstants.UNTRADEABLE;
+        flag |= ItemConstants.LOCK;
+        questRing.setFlag(flag);
+        this.forceUpdateItem(questRing);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    recalcLocalStats();
+}
 }

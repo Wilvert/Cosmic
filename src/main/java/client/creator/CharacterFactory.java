@@ -19,6 +19,9 @@
 */
 package client.creator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import client.Character;
 import client.Client;
 import client.SkinColor;
@@ -27,8 +30,6 @@ import client.inventory.InventoryType;
 import client.inventory.Item;
 import config.YamlConfig;
 import net.server.Server;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import server.ItemInformationProvider;
 import tools.PacketCreator;
 
@@ -68,6 +69,10 @@ public abstract class CharacterFactory {
             Item eq_top = ii.getEquipById(top);
             eq_top.setPosition((byte) -5);
             equipped.addItemFromDB(eq_top);
+            // Quest ring
+            Item m_mring = ii.getEquipById(1112103);
+            m_mring.setPosition((byte) -13);
+            equipped.addItemFromDB(m_mring);
         }
 
         if (bottom > 0) {

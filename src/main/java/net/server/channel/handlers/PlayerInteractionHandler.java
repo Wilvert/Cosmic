@@ -21,6 +21,13 @@
 */
 package net.server.channel.handlers;
 
+import java.awt.Point;
+import java.sql.SQLException;
+import java.util.Arrays;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import client.Character;
 import client.Client;
 import client.autoban.AutobanFactory;
@@ -35,8 +42,6 @@ import constants.id.ItemId;
 import constants.inventory.ItemConstants;
 import net.AbstractPacketHandler;
 import net.packet.InPacket;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import server.ItemInformationProvider;
 import server.Trade;
 import server.maps.FieldLimit;
@@ -49,10 +54,6 @@ import server.maps.PlayerShop;
 import server.maps.PlayerShopItem;
 import server.maps.Portal;
 import tools.PacketCreator;
-
-import java.awt.*;
-import java.sql.SQLException;
-import java.util.Arrays;
 
 /**
  * @author Matze

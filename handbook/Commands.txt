@@ -27,16 +27,16 @@ Common Commands:
 @mylawn - Claim ownership of the current map.
 @bosshp - Show HP of bosses on current map.
 @mobhp - Show HP of mobs on current map.
+@whatdropsfrom - Show what items drop from a mob.
+@whodrops - Show what drops an item.
 
 
 Donator Commands:
-@whatdropsfrom - Show what items drop from a mob.
-@whodrops - Show what drops an item.
-@buffme - Activate GM buffs on self.
 @goto - Warp to a predefined map.
 
 
 JrGM Commands:
+@buffme - Activate GM buffs on self.
 !recharge - Recharge and refill all USE items.
 !whereami - Show info about objects on current map.
 !hide - Hide from players.
