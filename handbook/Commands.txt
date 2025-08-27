@@ -29,10 +29,9 @@ Common Commands:
 @mobhp - Show HP of mobs on current map.
 @whatdropsfrom - Show what items drop from a mob.
 @whodrops - Show what drops an item.
-
+@goto - Warp to a predefined map.
 
 Donator Commands:
-@goto - Warp to a predefined map.
 
 
 JrGM Commands:
