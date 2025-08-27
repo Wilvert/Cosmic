@@ -8096,7 +8096,7 @@ public class Character extends AbstractCharacterObject {
 
             try {
                 // Character info
-                try (PreparedStatement ps = con.prepareStatement("INSERT INTO characters (str, dex, luk, `int`, gm, skincolor, gender, job, hair, face, map, meso, spawnpoint, accountid, name, world, hp, mp, maxhp, maxmp, level, ap, sp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
+                try (PreparedStatement ps = con.prepareStatement("INSERT INTO characters (str, dex, luk, `int`, gm, skincolor, gender, job, hair, face, map, meso, spawnpoint, accountid, name, world, hp, mp, maxhp, maxmp, level, ap, sp, equipslots, useslots, setupslots, etcslots) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
                     ps.setInt(1, str);
                     ps.setInt(2, dex);
                     ps.setInt(3, luk);
@@ -8127,6 +8127,12 @@ public class Character extends AbstractCharacterObject {
                     }
                     String sp = sps.toString();
                     ps.setString(23, sp.substring(0, sp.length() - 1));
+
+                    ps.setInt(24, 96); //Set equipslots to 96
+                    ps.setInt(25, 96); //Set useslots to 96
+                    ps.setInt(26, 96); //Set setupslots to 96
+                    ps.setInt(27, 96); //Set etcslots to 96     
+
 
                     int updateRows = ps.executeUpdate();
                     if (updateRows < 1) {
