@@ -1,41 +1,40 @@
 Common Commands:
+@whatdropsfrom - Show what items drop from a mob.
+@whodrops - Show what drops an item.
+@goto - Warp to a predefined map.
 @help - Show available commands.
 @commands - Show available commands.
-@droplimit - Check drop limit of current map.
 @time - Show current server time.
-@credits - Show credits. These people made the server possible.
-@uptime - Show server online time.
 @gacha - Show gachapon rewards.
-@dispose - Dispose to fix NPC chat.
-@changel - Change language settings
 @equiplv - Show levels of all equipped items.
 @showrates - Show all world/character rates.
 @rates - Show your rates.
 @online - Show all online players.
-@gm- Send a message to the game masters.
-@reportbug - Send in a bug report.
 @points - Show point total.
-@joinevent - Join active event.
-@leaveevent-Leave active event.
 @ranks - Show player rankings.
 @str - Assign AP into STR.
 @dex - Assign AP into DEX.
 @int - Assign AP into INT.
 @luk - Assign AP into LUK.
-@enableauth - Enable PIC code by resetting the cooldown.
 @toggleexp - Toggle enable/disable all exp gain.
 @mylawn - Claim ownership of the current map.
 @bosshp - Show HP of bosses on current map.
 @mobhp - Show HP of mobs on current map.
-@whatdropsfrom - Show what items drop from a mob.
-@whodrops - Show what drops an item.
-@goto - Warp to a predefined map.
 
 Donator Commands:
-
+@buffme - Activate GM buffs on self.
+@joinevent - Join active event.
+@leaveevent-Leave active event.
+@changel - Change language settings
+@credits - Show credits. These people made the server possible.
+@uptime - Show server online time.
+@gm- Send a message to the game masters.
+@reportbug - Send in a bug report.
+@droplimit - Check drop limit of current map.
+@enableauth - Enable PIC code by resetting the cooldown.
+@dispose - Dispose to fix NPC chat.
 
 JrGM Commands:
-@buffme - Activate GM buffs on self.
 !recharge - Recharge and refill all USE items.
 !whereami - Show info about objects on current map.
 !hide - Hide from players.

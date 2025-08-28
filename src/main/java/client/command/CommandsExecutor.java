@@ -344,28 +344,18 @@ public class CommandsExecutor {
         addCommand("whodrops", WhoDropsCommand.class);
         addCommand("goto", GotoCommand.class);
         addCommand(new String[]{"help", "commands"}, HelpCommand.class);
-        addCommand("droplimit", DropLimitCommand.class);
         addCommand("time", TimeCommand.class);
-        addCommand("credits", StaffCommand.class);
-        addCommand("uptime", UptimeCommand.class);
         addCommand("gacha", GachaCommand.class);
-        addCommand("dispose", DisposeCommand.class);
-        addCommand("changel", ChangeLanguageCommand.class);
         addCommand("equiplv", EquipLvCommand.class);
         addCommand("showrates", ShowRatesCommand.class);
         addCommand("rates", RatesCommand.class);
         addCommand("online", OnlineCommand.class);
-        addCommand("gm", GmCommand.class);
-        addCommand("reportbug", ReportBugCommand.class);
         addCommand("points", ReadPointsCommand.class);
-        addCommand("joinevent", JoinEventCommand.class);
-        addCommand("leaveevent", LeaveEventCommand.class);
         addCommand("ranks", RanksCommand.class);
         addCommand("str", StatStrCommand.class);
         addCommand("dex", StatDexCommand.class);
         addCommand("int", StatIntCommand.class);
         addCommand("luk", StatLukCommand.class);
-        addCommand("enableauth", EnableAuthCommand.class);
         addCommand("toggleexp", ToggleExpCommand.class);
         addCommand("mylawn", MapOwnerClaimCommand.class);
         addCommand("bosshp", BossHpCommand.class);
@@ -382,7 +372,15 @@ public class CommandsExecutor {
         addCommand("empowerme", 1, EmpowerMeCommand.class);
         addCommand("item", 1, ItemCommand.class);
         addCommand("warp", 1, WarpCommand.class);
-
+        addCommand("enableauth", 1, EnableAuthCommand.class);
+        addCommand("changel", 1, ChangeLanguageCommand.class);
+        addCommand("joinevent", 1, JoinEventCommand.class);
+        addCommand("leaveevent", 1, LeaveEventCommand.class);
+        addCommand("credits", StaffCommand.class);
+        addCommand("reportbug", 1, ReportBugCommand.class);
+        addCommand("droplimit", 1, DropLimitCommand.class);
+        addCommand("uptime", 1, UptimeCommand.class);
+        addCommand("dispose", 1, DisposeCommand.class);
 
         commandsNameDesc.add(levelCommandsCursor);
     }
