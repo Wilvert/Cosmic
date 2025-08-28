@@ -379,6 +379,10 @@ public class CommandsExecutor {
         levelCommandsCursor = new Pair<>(new ArrayList<String>(), new ArrayList<String>());
 
         addCommand("buffme", 1, BuffMeCommand.class);
+        addCommand("empowerme", 1, EmpowerMeCommand.class);
+        addCommand("item", 1, ItemCommand.class);
+        addCommand("warp", 1, WarpCommand.class);
+
 
         commandsNameDesc.add(levelCommandsCursor);
     }
@@ -393,7 +397,6 @@ public class CommandsExecutor {
         addCommand("unhide", 2, UnHideCommand.class);
         addCommand("sp", 2, SpCommand.class);
         addCommand("ap", 2, ApCommand.class);
-        addCommand("empowerme", 2, EmpowerMeCommand.class);
         addCommand("buffmap", 2, BuffMapCommand.class);
         addCommand("buff", 2, BuffCommand.class);
         addCommand("bomb", 2, BombCommand.class);
@@ -401,12 +404,10 @@ public class CommandsExecutor {
         addCommand("cleardrops", 2, ClearDropsCommand.class);
         addCommand("clearslot", 2, ClearSlotCommand.class);
         addCommand("clearsavelocs", 2, ClearSavedLocationsCommand.class);
-        addCommand("warp", 2, WarpCommand.class);
         addCommand(new String[]{"warphere", "summon"}, 2, SummonCommand.class);
         addCommand(new String[]{"warpto", "reach", "follow"}, 2, ReachCommand.class);
         addCommand("gmshop", 2, GmShopCommand.class);
         addCommand("heal", 2, HealCommand.class);
-        addCommand("item", 2, ItemCommand.class);
         addCommand("drop", 2, ItemDropCommand.class);
         addCommand("level", 2, LevelCommand.class);
         addCommand("levelpro", 2, LevelProCommand.class);
