@@ -464,6 +464,11 @@ if (eqQr == null) {
     // If not found in EQUIPPED, search in EQUIP inventory
     Inventory equipInventory = c.getPlayer().getInventory(InventoryType.EQUIP);
     eqQr = (Equip) equipInventory.findById(QuestItem);
+    // Add quest ring if missing
+    if (eqQr == null) {
+        eqQr = new Equip(QuestItem, (short) equipInventory.getNextFreeSlot());
+        equipInventory.addItem(eqQr);
+    }
 }
 
 c.getPlayer().forceUpdateItem(eqQr);
