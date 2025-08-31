@@ -19,13 +19,18 @@
 */
 package server;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import client.Client;
 import client.inventory.Equip;
 import client.inventory.Item;
 import config.YamlConfig;
 import constants.inventory.ItemConstants;
-
-import java.util.*;
 
 /**
  * @author RonanLana
@@ -33,11 +38,11 @@ import java.util.*;
 public class StorageInventory {
     private final Client c;
     private Map<Short, Item> inventory = new LinkedHashMap<>();
-    private final byte slotLimit;
+    private final short slotLimit;
 
     public StorageInventory(Client c, List<Item> toSort) {
         this.inventory = new LinkedHashMap<>();
-        this.slotLimit = (byte) toSort.size();
+        this.slotLimit = (short) toSort.size();
         this.c = c;
 
         for (Item item : toSort) {
@@ -45,7 +50,7 @@ public class StorageInventory {
         }
     }
 
-    private byte getSlotLimit() {
+    private short getSlotLimit() {
         return slotLimit;
     }
 
