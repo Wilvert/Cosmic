@@ -404,9 +404,9 @@ public class Character extends AbstractCharacterObject {
         savedLocations = new SavedLocation[SavedLocationType.values().length];
 
         for (InventoryType type : InventoryType.values()) {
-            short b = 24;
+            byte b = 24;
             if (type == InventoryType.CASH) {
-                b = 192;
+                b = 96;
             }
             inventory[type.ordinal()] = new Inventory(this, type, b);
         }
@@ -6929,10 +6929,10 @@ public class Character extends AbstractCharacterObject {
 
                     wserv = Server.getInstance().getWorld(ret.world);
 
-                    ret.getInventory(InventoryType.EQUIP).setSlotLimit(rs.getShort("equipslots"));
-                    ret.getInventory(InventoryType.USE).setSlotLimit(rs.getShort("useslots"));
-                    ret.getInventory(InventoryType.SETUP).setSlotLimit(rs.getShort("setupslots"));
-                    ret.getInventory(InventoryType.ETC).setSlotLimit(rs.getShort("etcslots"));
+                    ret.getInventory(InventoryType.EQUIP).setSlotLimit(rs.getByte("equipslots"));
+                    ret.getInventory(InventoryType.USE).setSlotLimit(rs.getByte("useslots"));
+                    ret.getInventory(InventoryType.SETUP).setSlotLimit(rs.getByte("setupslots"));
+                    ret.getInventory(InventoryType.ETC).setSlotLimit(rs.getByte("etcslots"));
 
                     short sandboxCheck = 0x0;
                     for (Pair<Item, InventoryType> item : ItemFactory.INVENTORY.loadItems(ret.id, !channelserver)) {
@@ -9156,13 +9156,13 @@ public class Character extends AbstractCharacterObject {
         this.skinColor = skinColor;
     }
 
-    public short getSlots(int type) {
-        return type == InventoryType.CASH.getType() ? 192 : inventory[type].getSlotLimit();
+    public byte getSlots(int type) {
+        return type == InventoryType.CASH.getType() ? 96 : inventory[type].getSlotLimit();
     }
 
     public boolean canGainSlots(int type, int slots) {
         slots += inventory[type].getSlotLimit();
-        return slots <= 192;
+        return slots <= 96;
     }
 
     public boolean gainSlots(int type, int slots) {
@@ -10965,7 +10965,7 @@ public void applyQuestRingBoost() {
         questRing.setWatk(ringWatk);
         questRing.setMatk(ringMatk);
 
-        short flag = (short) questRing.getFlag();
+        byte flag = (byte) questRing.getFlag();
         flag |= ItemConstants.UNTRADEABLE;
         flag |= ItemConstants.LOCK;
         questRing.setFlag(flag);

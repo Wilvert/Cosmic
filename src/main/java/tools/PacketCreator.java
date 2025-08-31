@@ -410,13 +410,11 @@ public class PacketCreator {
             isRing = equip.getRingId() > -1;
         }
         if (!zeroPosition) {
-	        if (equip != null) {
+            if (equip != null) {
                 if (pos < 0) {
                     pos *= -1;
-                    p.writeShort(pos > 100 ? pos - 100 : pos);
-                } else {
-                    p.writeShort(pos);
                 }
+                p.writeShort(pos > 100 ? pos - 100 : pos);
             } else {
                 p.writeByte(pos);
             }
@@ -2472,7 +2470,7 @@ public class PacketCreator {
     public static Packet modifyInventory(boolean updateTick, final List<ModifyInventory> mods) {
         OutPacket p = OutPacket.create(SendOpcode.INVENTORY_OPERATION);
         p.writeBool(updateTick);
-        p.writeShort(mods.size());
+        p.writeByte(mods.size());
         //p.writeByte(0); v104 :)
         int addMovement = -1;
         for (ModifyInventory mod : mods) {
