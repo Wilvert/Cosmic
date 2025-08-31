@@ -418,7 +418,7 @@ public class PacketCreator {
                     p.writeShort(pos);
                 }
             } else {
-                p.writeShort(pos);
+                p.writeByte(pos);
             }
         }
         p.writeByte(itemType);
