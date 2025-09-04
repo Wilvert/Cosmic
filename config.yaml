@@ -439,7 +439,7 @@ server:
     WEDDING_BLESSER_SHOWFX: true    #Pops bubble sprite effect on players blessing the couple. Setting this false shows the blessing effect on the couple instead.
 
     # Login timeout by shavit
-    TIMEOUT_DURATION: 3600000               # Kicks clients who don't send any packet to the game server in due time (in millisseconds).
+    TIMEOUT_DURATION: 7200000               # Kicks clients who don't send any packet to the game server in due time (in millisseconds).
 
     #Event End Timestamp
     EVENT_END_TIMESTAMP: 1428897600000
