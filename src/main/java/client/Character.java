@@ -404,9 +404,9 @@ public class Character extends AbstractCharacterObject {
         savedLocations = new SavedLocation[SavedLocationType.values().length];
 
         for (InventoryType type : InventoryType.values()) {
-            byte b = 24;
+            short b = 24;
             if (type == InventoryType.CASH) {
-                b = 96;
+                b = 192;
             }
             inventory[type.ordinal()] = new Inventory(this, type, b);
         }
@@ -8128,10 +8128,10 @@ public class Character extends AbstractCharacterObject {
                     String sp = sps.toString();
                     ps.setString(23, sp.substring(0, sp.length() - 1));
 
-                    ps.setInt(24, 96); //Set equipslots to 96
-                    ps.setInt(25, 96); //Set useslots to 96
-                    ps.setInt(26, 96); //Set setupslots to 96
-                    ps.setInt(27, 96); //Set etcslots to 96     
+                    ps.setInt(24, 192); //Set equipslots to 192
+                    ps.setInt(25, 192); //Set useslots to 192
+                    ps.setInt(26, 192); //Set setupslots to 192
+                    ps.setInt(27, 192); //Set etcslots to 192     
 
 
                     int updateRows = ps.executeUpdate();
@@ -9156,13 +9156,13 @@ public class Character extends AbstractCharacterObject {
         this.skinColor = skinColor;
     }
 
-    public byte getSlots(int type) {
-        return type == InventoryType.CASH.getType() ? 96 : inventory[type].getSlotLimit();
+    public short getSlots(int type) {
+        return type == InventoryType.CASH.getType() ? 192 : inventory[type].getSlotLimit();
     }
 
     public boolean canGainSlots(int type, int slots) {
         slots += inventory[type].getSlotLimit();
-        return slots <= 96;
+        return slots <= 192;
     }
 
     public boolean gainSlots(int type, int slots) {

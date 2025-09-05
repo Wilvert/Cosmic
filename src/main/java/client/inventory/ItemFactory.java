@@ -20,9 +20,6 @@
  */
 package client.inventory;
 
-import tools.DatabaseConnection;
-import tools.Pair;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,6 +29,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
+import tools.DatabaseConnection;
+import tools.Pair;
 
 /**
  * @author Flav
@@ -180,7 +180,7 @@ public enum ItemFactory {
                                 petid = -1;
                             }
 
-                            Item item = new Item(rs.getInt("itemid"), (byte) rs.getInt("position"), (short) rs.getInt("quantity"), petid);
+                            Item item = new Item(rs.getInt("itemid"), (short) rs.getInt("position"), (short) rs.getInt("quantity"), petid);
                             item.setOwner(rs.getString("owner"));
                             item.setExpiration(rs.getLong("expiration"));
                             item.setGiftFrom(rs.getString("giftFrom"));
