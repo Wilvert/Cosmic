@@ -6929,10 +6929,10 @@ public class Character extends AbstractCharacterObject {
 
                     wserv = Server.getInstance().getWorld(ret.world);
 
-                    ret.getInventory(InventoryType.EQUIP).setSlotLimit(rs.getByte("equipslots"));
-                    ret.getInventory(InventoryType.USE).setSlotLimit(rs.getByte("useslots"));
-                    ret.getInventory(InventoryType.SETUP).setSlotLimit(rs.getByte("setupslots"));
-                    ret.getInventory(InventoryType.ETC).setSlotLimit(rs.getByte("etcslots"));
+                    ret.getInventory(InventoryType.EQUIP).setSlotLimit(rs.getShort("equipslots"));
+                    ret.getInventory(InventoryType.USE).setSlotLimit(rs.getShort("useslots"));
+                    ret.getInventory(InventoryType.SETUP).setSlotLimit(rs.getShort("setupslots"));
+                    ret.getInventory(InventoryType.ETC).setSlotLimit(rs.getShort("etcslots"));
 
                     short sandboxCheck = 0x0;
                     for (Pair<Item, InventoryType> item : ItemFactory.INVENTORY.loadItems(ret.id, !channelserver)) {
