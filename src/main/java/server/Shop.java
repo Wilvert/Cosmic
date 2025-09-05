@@ -201,7 +201,7 @@ public class Shop {
         Item item = c.getPlayer().getInventory(type).getItem(slot);
         if (canSell(item, quantity)) {
             quantity = getSellingQuantity(item, quantity);
-            InventoryManipulator.removeFromSlot(c, type, (byte) slot, quantity, false);
+            InventoryManipulator.removeFromSlot(c, type, (short) slot, quantity, false);
 
             ItemInformationProvider ii = ItemInformationProvider.getInstance();
             int recvMesos = ii.getPrice(item.getItemId(), quantity);
